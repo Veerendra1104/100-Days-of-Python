@@ -1,61 +1,38 @@
-def add(n1, n2):
-    return n1 + n2
+git alphabets = ['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z',
+             'a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z']
+
+print("Wel come to Encrypt and Decrypt !!!!!")
 
 
-def sub(n1, n2):
-    return n1 - n2
-
-
-def mul(n1, n2):
-    return n1 * n2
-
-
-def div(n1, n2):
-    return n1 / n2
-operators = {
-    "+": add,
-    "-": sub,
-    "*": mul,
-    "/": div
-}
-
-def calculator():
-    num1 = float(input("Enter the Number1 : "))
-    n1 = int(num1)
-    for symbol in operators:
-        print(symbol)
-    should_continue = True
-
-    while should_continue:
-        operator_symbol = input("Pick an operator ")
-        num2 = float(input("Enter the Number2 : "))
-        n2 = int(num2)
-        calculator_function = operators[operator_symbol]
-        result = calculator_function(int(n1),int(n2))
-        print(result)
-
-        print(f"{n1} {operator_symbol} {n2} = {result}")
-
-        if input(f"Type 'y' to continue Calculation with {result} or else type 'n' to start a new calculation ") == 'y':
-            num1 = result
-
+def caeser(start_word, shift, direction):
+    end_word = ""
+    if direction == "decode":
+        shift *= -1
+    for char in start_word:
+        if char in alphabets:
+            position = alphabets.index(char)
+            new_position = position + shift
+            end_word += alphabets[new_position]
         else:
-            should_continue = False
-            calculator()
-
-calculator()
+            end_word += char
+    print(f"The {direction}d word is : {end_word}")
 
 
+should_continue = True
+while should_continue:
+    direction = input("Enter  encode or decode : ")
+    word = input("Enter the word : ")
+    shift = int(input("Enter the number of shifts : "))
+    if shift>26:
+        shift = shift % 26
+    caeser(word, shift, direction)
+
+    result = input("Type 'yes' if you wnat to continue else 'no' to exit")
+    if result=="no":
+        should_continue=False
+        print("Good Bye")
 
 
 
 
-
-
-
-
-
-
-
-
-
+ 
