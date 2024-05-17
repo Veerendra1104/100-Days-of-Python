@@ -23,8 +23,8 @@ from datetime import datetime
 
 import pandas as pandas
 
-MY_EMAIL = "msveerendraveerendra5914@gmail.com"
-MY_PASSWORD = "gqwv uynf irme ndws"
+MY_EMAIL = "Enetr your email-id"
+MY_PASSWORD = "enter password"
 
 today = datetime.now()
 today_tuple = (today.month, today.day)
